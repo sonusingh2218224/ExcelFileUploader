@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 import { collection, addDoc } from "firebase/firestore";
 import db from "../config/firebase";
 import { toast } from "react-toastify";
-import { Button, CircularProgress, TextField } from "@mui/material";
+import { Button, CircularProgress, Grid, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const ExcelUpload = () => {
@@ -58,29 +58,44 @@ const ExcelUpload = () => {
 
   return (
     <div className="container">
-      <h2>Upload Your Excel File (.XLSX)</h2>
-      <div className="file_upload_input">
-        <TextField
-          type="file"
-          inputProps={{ accept: ".xlsx" }}
-          onChange={handleFileChange}
-          variant="outlined"
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleUpload}
-          disabled={isUploading}
-        >
-          {isUploading ? (
-            <CircularProgress size={24} color="inherit" />
-          ) : (
-            "Upload"
-          )}
-        </Button>
-        <Link to="/exceldata" className="link">
-          Excel Retrieve Data
-        </Link>
+      <h2
+        style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "20px" }}
+      >
+        Upload Your Excel File (.XLSX)
+      </h2>
+      <div>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <TextField
+              type="file"
+              inputProps={{ accept: ".xlsx" }}
+              onChange={handleFileChange}
+              variant="outlined"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleUpload}
+              disabled={isUploading}
+              fullWidth
+              className="upload"
+            >
+              {isUploading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                "Upload"
+              )}
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Link to="/exceldata" className="link">
+              <Button> Excel Retrieve Data</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

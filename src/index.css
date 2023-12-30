@@ -15,6 +15,7 @@ code {
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  margin-top: 100px;
 }
 .file_upload_input {
   display: flex;
@@ -26,24 +27,31 @@ code {
   background-color: #fff;
   margin-top: 30px;
 }
+
 .file_upload_input input {
-  margin-right: 20px;
-  padding: 20px;
+  margin-right: 20px !important;
 }
 .file_upload_input button {
   margin-left: 10px;
-  padding: 17px 35px;
+  margin-right: 20px !important;
 }
 .link {
-  padding: 20px;
-  margin-left: 100px;
   background-color: blue;
   color: white;
   text-decoration: none;
   font-size: 18px;
   border-radius: 9px;
+  padding: 16px 6px !important;
+  margin-left: 10px !important;
+}
+.link button {
+  color: white !important;
+  padding: 14px 0px !important;
 }
 .link:hover {
-  background-color: red;
   color: white;
+}
+
+.upload {
+  padding: 14px 0px !important;
 }
